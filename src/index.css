@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Theme Variables for Utility Classes */
+  --color-bg-light: #f8fafc;
+  --color-card-light: #ffffff;
+  --color-border-light: #e2e8f0;
+  
+  --color-bg-dark: #0B0E14;
+  --color-card-dark: #111621;
+  --color-border-slate: #1e293b;
+  --color-cyan-accent: #22d3ee;
+
+  /* Semantic Theme Colors */
+  --color-bg-main: var(--color-bg-light);
+  --color-card-main: var(--color-card-light);
+  --color-border-main: var(--color-border-light);
+  --color-text-main: #475569;
+  --color-text-title: #0f172a;
+}
+
+@theme dark {
+  --color-bg-main: var(--color-bg-dark);
+  --color-card-main: var(--color-card-dark);
+  --color-border-main: var(--color-border-slate);
+  --color-text-main: #94a3b8;
+  --color-text-title: #ffffff;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply transition-colors duration-500 font-sans bg-bg-main text-text-main;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
